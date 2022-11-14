@@ -9,6 +9,7 @@ const Display = () => {
 
   const navigation = useNavigation()
   
+  const { gameBoard, turn } = useSelector((store) => store.game)
   const { player1, player2 } = useSelector((store) => store.players)
   const { winner } = useSelector((store) => store.game)
 
@@ -40,6 +41,20 @@ switch(winner) {
             </View>
         )
     default:
+      if(turn >= gameBoard.length*gameBoard.length){
+        return (
+        <View>
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Home')}>
+              <Text style={styles.buttonText}>BACK</Text>
+            </TouchableOpacity>
+          </View>
+            <View style={[styles.messageContainer, {backgroundColor: Color.yellow }]}>
+                <Text style={styles.message}>It`s a Tie!</Text>
+            </View>
+          </View>
+        )
+      }
     break;
     }
 }
