@@ -12,9 +12,11 @@ const ScoreScreen = () => {
 
     const { scoreList } = useSelector((store) => store.scores)
 
+    const myList = scoreList
+
     return (
         <ScrollView style={styles.container}>
-            {scoreList.map((e,i) => {
+            {[...myList].reverse().map((e,i) => {
                 if (e !== null) {
                     return (
                     <Text key={i} style={styles.content}>{e.name}</Text>
