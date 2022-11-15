@@ -7,18 +7,25 @@ import Display from '../components/Display'
 
 const GameScreen = () => {
 
-  const { currentPlayer } = useSelector((store) => store.game)
+  const { currentPlayer, winner } = useSelector((store) => store.game)
+
+  const displayCurrentPlayer = () => {
+    if(winner === null){
+      return (
+        <View style={[styles.messageContainer, {backgroundColor: currentPlayer.color }]}>
+          <Text style={styles.message}>{currentPlayer.name}` Turn</Text>
+        </View>
+      )
+    } else {
+      return;
+    }
+  }
 
   return (
     <View style={styles.container}>
-      <View style={[styles.messageContainer, {backgroundColor: currentPlayer.color }]}>
-            <Text style={styles.message}>{currentPlayer.name}` Turn</Text>
-      </View>
-      
+      {displayCurrentPlayer()}
       <View style={styles.gameBoard}>
-          
         <GameBoard/>
-        
       </View>
       <Display/>
     </View>
