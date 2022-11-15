@@ -17,26 +17,26 @@ switch(winner) {
     case player1:
         return (
           <View>
+            <View style={[styles.messageContainer, {backgroundColor: player1.color }]}>
+                <Text style={styles.message}>{player1.name} is the Winner</Text>
+            </View>
             <View style={styles.buttonContainer}>
                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Home')}>
                   <Text style={styles.buttonText}>BACK</Text>
                 </TouchableOpacity>
-            </View>
-            <View style={[styles.messageContainer, {backgroundColor: player1.color }]}>
-                <Text style={styles.message}>{player1.name} is the Winner</Text>
             </View>
           </View>
         )
     case player2:
         return (
             <View>
+              <View style={[styles.messageContainer, {backgroundColor: player2.color }]}>
+                  <Text style={styles.message}>{player2.name} is the Winner</Text>
+              </View>
               <View style={styles.buttonContainer}>
                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Home')}>
                   <Text style={styles.buttonText}>BACK</Text>
                 </TouchableOpacity>
-              </View>
-              <View style={[styles.messageContainer, {backgroundColor: player2.color }]}>
-                  <Text style={styles.message}>{player2.name} is the Winner</Text>
               </View>
             </View>
         )
@@ -44,14 +44,14 @@ switch(winner) {
       if(turn >= gameBoard.length*gameBoard.length){
         return (
         <View>
-          <View style={styles.buttonContainer}>
+            <View style={[styles.messageContainer, {backgroundColor: Color.yellow }]}>
+                <Text style={styles.message}>It`s a Tie!</Text>
+            </View>
+            <View style={styles.buttonContainer}>
             <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Home')}>
               <Text style={styles.buttonText}>BACK</Text>
             </TouchableOpacity>
           </View>
-            <View style={[styles.messageContainer, {backgroundColor: Color.yellow }]}>
-                <Text style={styles.message}>It`s a Tie!</Text>
-            </View>
           </View>
         )
       }
@@ -77,13 +77,13 @@ const styles = StyleSheet.create({
   buttonContainer: {
       flexDirection: 'column',
       alignItems:'center',
-      justifyContent: 'space-between',
+      // justifyContent: 'space-between',
       // backgroundColor: 'pink',
     },
   button: {
     paddingVertical: 10,
     paddingHorizontal: 30,
-    marginVertical:30,
+    marginTop:30,
     backgroundColor: Color.green,
     borderRadius: 5,
   },

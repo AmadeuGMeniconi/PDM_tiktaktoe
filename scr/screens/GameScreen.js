@@ -17,7 +17,7 @@ const GameScreen = () => {
         </View>
       )
     } else {
-      return;
+      return <Display/>
     }
   }
 
@@ -27,7 +27,7 @@ const GameScreen = () => {
       <View style={styles.gameBoard}>
         <GameBoard/>
       </View>
-      <Display/>
+      {/* <Display/> */}
     </View>
   )
 }

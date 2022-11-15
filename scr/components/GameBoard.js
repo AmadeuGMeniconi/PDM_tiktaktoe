@@ -18,12 +18,6 @@ const GameBoard = () => {
             gameTiles.push([i,j])
         }
     };
-
-
-    
-    // if (winner === null){
-    //     checkWinner()
-    // }
     
     return (
         <View style={[styles.conteiner, {width: 85 * gameBoard.length}]}>
