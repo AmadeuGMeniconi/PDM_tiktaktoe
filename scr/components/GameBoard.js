@@ -1,16 +1,11 @@
 import React from 'react'
 import { StyleSheet, View} from 'react-native'
 import { useSelector, useDispatch } from 'react-redux';
-import { setGameWinner } from '../redux/reducers/GameSlice'
-import { addWinner } from '../redux/reducers/ScoreSlice';
 import BoardTile from './BoardTile';
 
 const GameBoard = () => {
 
-    const { gameBoard, winner } = useSelector((store) => store.game);
-    const { player1, player2 } = useSelector((store) => store.players)
-
-    const dispatch = useDispatch();
+    const { gameBoard } = useSelector((store) => store.game);
 
     const gameTiles = [];
     for (let i = 0; i < gameBoard.length; i++) {
@@ -31,8 +26,6 @@ const GameBoard = () => {
         </View>
     )
 }
-
-
 
 const styles = StyleSheet.create({
     conteiner: {

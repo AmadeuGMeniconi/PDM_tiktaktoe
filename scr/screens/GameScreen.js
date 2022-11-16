@@ -1,33 +1,25 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import GameBoard from '../components/GameBoard'
 import Color from '../components/MyColors'
-import { useSelector } from 'react-redux'
 import Display from '../components/Display'
+import { useNavigation } from '@react-navigation/native'
 
 const GameScreen = () => {
 
-  const { currentPlayer, winner } = useSelector((store) => store.game)
-
-  const displayCurrentPlayer = () => {
-    if(winner === null){
-      return (
-        <View style={[styles.messageContainer, {backgroundColor: currentPlayer.color }]}>
-          <Text style={styles.message}>{currentPlayer.name}` Turn</Text>
-        </View>
-      )
-    } else {
-      return <Display/>
-    }
-  }
+  const navigation = useNavigation()
 
   return (
     <View style={styles.container}>
-      {displayCurrentPlayer()}
+        <Display/>
       <View style={styles.gameBoard}>
         <GameBoard/>
       </View>
-      {/* <Display/> */}
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Home')}>
+          <Text style={styles.buttonText}>BACK</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   )
 }
@@ -40,22 +32,27 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     backgroundColor: Color.darkGrey
   },
-  messageContainer: {
-    flex: 0,
-    textAlign:'center',
-    alignItems:'center',
-    alignContent: 'center',
-    padding: 20,
-    backgroundColor: Color.blue
-  },
-  message: {
-    fontSize: 30,
-    color:'white'
-  },
   gameBoard: {
     flex: 1,
     marginVertical:70,
     alignSelf:'center',
     justifyContent: 'center'
+  },
+  buttonContainer: {
+    flexDirection: 'column',
+    alignItems:'center',
+    marginBottom: 80
+    },
+  button: {
+    paddingVertical: 10,
+    paddingHorizontal: 30,
+    marginTop:30,
+    backgroundColor: Color.green,
+    borderRadius: 5,
+  },
+  buttonText: {
+    fontSize: 30,
+    textAlign: 'center',
+    color: 'white'
   }
 })

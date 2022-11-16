@@ -138,7 +138,6 @@ const styles = StyleSheet.create({
   },
   icon: {
     fontSize: 70,
-    
   }
 });
 
