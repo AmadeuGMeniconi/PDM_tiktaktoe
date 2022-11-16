@@ -8,7 +8,6 @@ import ScoreScreen from './scr/screens/ScoreScreen';
 
 import { Provider } from 'react-redux';
 import { gameStore } from './scr/redux/Store';
-import { StyleSheet } from 'react-native';
 
 //Project Navigator Stack
 const Stack = createNativeStackNavigator();
@@ -30,24 +29,5 @@ const App = () => {
   )
 }
 
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
 
 export default App;

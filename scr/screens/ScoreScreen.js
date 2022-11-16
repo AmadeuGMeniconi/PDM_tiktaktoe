@@ -2,13 +2,10 @@ import { ScrollView, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { useSelector } from 'react-redux'
 import Color from '../components/MyColors'
-import { useDispatch } from 'react-redux'
 
 
 
 const ScoreScreen = () => {
-
-    const dispatch = useDispatch()
 
     const { scoreList } = useSelector((store) => store.scores)
 

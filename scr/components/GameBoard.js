@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, View} from 'react-native'
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import BoardTile from './BoardTile';
 
 const GameBoard = () => {

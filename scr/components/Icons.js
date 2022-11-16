@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import * as IconRegular from '@fortawesome/free-regular-svg-icons';
-import Color from './MyColors';
 import { useSelector } from 'react-redux';
 
 const { player1, player2 } = useSelector((store) => store.players)
